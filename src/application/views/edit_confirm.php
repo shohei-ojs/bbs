@@ -24,32 +24,42 @@ body{
 <div id="main">
 <div id="main-in">
 
-<div style="float:right" id="button-panel">
-	<a class="button" href="<?php echo base_url() . "index.php/top/toppage"?>">トップ</a> |
-	<a class="button" href="<?php echo base_url() . "index.php/top/search"?>">検索</a> |
-	<a class="button" href="<?php echo base_url() . "index.php/top/edit_delete"?>">編集・削除</a> |
-	<a class="button" href="<?php echo base_url() . "index.php/top/logout"?>">ログアウト</a>
-</div>
+
 <br>
 
-<?php echo form_open('top/post_search'); ?>
+
+<?php echo form_open('top/post_edit_confirm'); ?>
 <?php echo validation_errors(); ?>
+<?php echo '<input type="hidden" name="no" value="'.$no.'">'; ?>
+<?php echo '<input type="hidden" name="title" value="'.$title.'">'; ?>
+<?php echo '<input type="hidden" name="message" value="'.$message.'">'; ?>
+
 
 <input type="hidden" name="mode" value="regist" />
 <div id="reg-box">
 <table style="margin-left:auto;margin-right:auto">
 
-	<h2 style="text-align:center">検索</h2>
+	<h2 style="text-align:center">確認</h2>
 	<tr height="40">
         <td colspan="2">
-        	検索ワード
+        	この内容でよろしいですか？
         	<br>
-        	<input type="text" name="search" size="">
         </td>
     </tr>
 </table>
 
-<div id="button">  <button type='submit' >検索</button></div>
+<?php
+
+	echo "<h2>タイトル：";
+	echo $title;
+	echo "</h2>";
+	echo "<p>本文：";
+	echo $message;
+	echo "<br />";
+
+?>
+
+<div id="button">  <button type='submit' name='action' value='entry'>確定</button> <button type='submit' name='action' value='back'>戻る</button></div>
 </form>
 
 </body>

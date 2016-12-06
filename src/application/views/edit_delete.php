@@ -32,24 +32,25 @@ body{
 </div>
 <br>
 
-<?php echo form_open('top/post_search'); ?>
+<?php echo form_open('top/post_select'); ?>
 <?php echo validation_errors(); ?>
 
 <input type="hidden" name="mode" value="regist" />
 <div id="reg-box">
 <table style="margin-left:auto;margin-right:auto">
 
-	<h2 style="text-align:center">検索</h2>
+	<h2 style="text-align:center">編集・削除</h2>
 	<tr height="40">
         <td colspan="2">
-        	検索ワード
+        	記事No.
         	<br>
-        	<input type="text" name="search" size="">
+        	<input type="number" name="no" size="">
         </td>
     </tr>
 </table>
 
-<div id="button">  <button type='submit' >検索</button></div>
+<div id="button">  <button type='submit' name='action' value='edit'>編集</button> <button type='submit' name='action' value='delete'>削除</button></div>
+
 </form>
 
 </body>
